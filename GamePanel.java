@@ -23,10 +23,9 @@ public class GamePanel extends JPanel {
         setLayout(new BorderLayout());
         setFocusable(true);
 
-        // إعداد OpenGL Canvas
+    
         setupOpenGL();
 
-        // إضافة KeyListener للتحكم في pause
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -37,14 +36,13 @@ public class GamePanel extends JPanel {
     }
 
     private void setupOpenGL() {
-        // إنشاء GLCanvas
+      
         glcanvas = new GLCanvas();
         glcanvas = new GLCanvas();
         AnimListener listener = new AnimGLEventListener3();
         glcanvas.addGLEventListener(listener);
         glcanvas.addKeyListener(listener);
 
-        // نقل focus إلى glcanvas للأوامر
         glcanvas.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -55,7 +53,7 @@ public class GamePanel extends JPanel {
 
         add(glcanvas, BorderLayout.CENTER);
 
-        // إعداد الأنيميشن
+       
         animator = new FPSAnimator(15);
         animator.add(glcanvas);
         animator.start();
@@ -68,7 +66,7 @@ public class GamePanel extends JPanel {
             animator.stop();
             frame.switchTo(new PausePanel(frame, this));
         } else {
-            // هذا سيتم استدعاؤه من زر Resume في PausePanel
+           
         }
     }
 
@@ -78,7 +76,7 @@ public class GamePanel extends JPanel {
             if (!animator.isAnimating()) {
                 animator.start();
             }
-            // نقل focus للوحة اللعبة
+         
             requestFocus();
         }
     }
@@ -102,7 +100,6 @@ class PausePanel extends JPanel {
 
     public PausePanel(GameFrame frame, GamePanel gamePanel) {
 
-        // Panel الخلفية
         ImageIcon bgImage = new ImageIcon("C:\\Users\\ahmed\\Downloads\\pngtree-snow-covering-the-ground-picture-image_12813784.jpg");
 
         JPanel bgPanel = new JPanel() {
@@ -117,14 +114,14 @@ class PausePanel extends JPanel {
         bgPanel.setLayout(new BorderLayout());
 
         // ----------------------------------------------------------
-        // عنوان (GAME PAUSED)
+     \
         JLabel title = new JLabel("GAME PAUSED", SwingConstants.CENTER);
         title.setForeground(Color.WHITE);
         title.setFont(new Font("Arial", Font.BOLD, 40));
         bgPanel.add(title, BorderLayout.NORTH);
 
         // ----------------------------------------------------------
-        // Panel للأزرار في النص
+     
         JPanel centerButtons = new JPanel();
         centerButtons.setOpaque(false);
         centerButtons.setLayout(new BoxLayout(centerButtons, BoxLayout.Y_AXIS));
@@ -159,7 +156,7 @@ class PausePanel extends JPanel {
         bgPanel.add(centerButtons, BorderLayout.CENTER);
 
         // ----------------------------------------------------------
-        // Hint النص تحت
+       
         JLabel hint = new JLabel("Press ESC to pause/resume", SwingConstants.CENTER);
         hint.setForeground(Color.WHITE);
         hint.setFont(new Font("Arial", Font.ITALIC, 18));
@@ -167,7 +164,7 @@ class PausePanel extends JPanel {
         bgPanel.add(hint, BorderLayout.SOUTH);
 
         // ----------------------------------------------------------
-        // إضافة bgPanel هو الوحيد للواجهة
+      
         setLayout(new BorderLayout());
         add(bgPanel, BorderLayout.CENTER);
     }
@@ -198,3 +195,4 @@ class PausePanel extends JPanel {
     }
 
 }
+
