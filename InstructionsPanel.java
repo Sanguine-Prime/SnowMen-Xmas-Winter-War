@@ -24,8 +24,8 @@ public class InstructionsPanel extends JPanel {
 
         // ---------- Text Area ----------
         text = new JTextArea();
-        text.setEditable(false);   // خليها read only
-        text.setOpaque(false);     // خليها شفافة فوق الخلفية
+        text.setEditable(false);   
+        text.setOpaque(false);     
         text.setForeground(new Color(4, 0, 98, 180));
         text.setFont(new Font("Arial", Font.BOLD, 17));
         text.setText(
@@ -54,7 +54,7 @@ public class InstructionsPanel extends JPanel {
 
         );
 
-        text.setMaximumSize(new Dimension(600, 500));   // حجم مناسب
+        text.setMaximumSize(new Dimension(600, 500));   
         text.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // ---------- Back Button ----------
@@ -107,3 +107,4 @@ public class InstructionsPanel extends JPanel {
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 }
+
